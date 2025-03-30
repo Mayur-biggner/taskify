@@ -1,0 +1,13 @@
+{
+    "java.saveActions.organizeImports": true,
+    "editor.codeActionsOnSave": {
+       "source.sortImports": "explicit",
+       "source.removeUnusedImports": "explicit",
+       "source.addMissingImports.ts": "explicit",
+       "source.fixAll.eslint": "explicit",
+       "source.fixAll.ts": "explicit"
+    },
+    "editor.fontFamily": "'Droid Sans Mono', 'monospace', monospace",
+    "selection-foreground.textColor": "#000000"
+}
+  
