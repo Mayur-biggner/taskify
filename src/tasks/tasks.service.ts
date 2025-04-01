@@ -55,6 +55,18 @@ export class TasksService {
         const taskDate = new Date(task.dueDate);
         return taskDate >= start && taskDate <= end;
       });
+    } else if (query?.startDate) {
+      const start = new Date(query.startDate);
+      filteredTasks = filteredTasks.filter((task) => {
+        const taskDate = new Date(task.dueDate);
+        return taskDate >= start;
+      });
+    } else if (query?.endDate) {
+      const end = new Date(query.endDate);
+      filteredTasks = filteredTasks.filter((task) => {
+        const taskDate = new Date(task.dueDate);
+        return taskDate <= end;
+      });
     }
 
     return filteredTasks;

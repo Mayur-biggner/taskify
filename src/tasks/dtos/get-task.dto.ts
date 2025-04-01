@@ -12,18 +12,17 @@ export class GetTasksQueryDto {
   @IsDateString()
   dueDate?: string;
 
-  @ApiPropertyOptional({ description: 'Start date for filtering tasks (YYYY-MM-DD)' })
+  @ApiPropertyOptional({
+    description: 'Start date for filtering tasks (YYYY-MM-DD)',
+  })
   @IsOptional()
   @IsDateString()
   startDate?: string;
 
-  @ApiPropertyOptional({ description: 'End date for filtering tasks (YYYY-MM-DD)' })
+  @ApiPropertyOptional({
+    description: 'End date for filtering tasks (YYYY-MM-DD)',
+  })
   @IsOptional()
   @IsDateString()
   endDate?: string;
-
-  @ApiPropertyOptional({ description: 'Filter tasks by completion status' })
-  @IsOptional()
-  @IsString()
-  completed?: string;
 }

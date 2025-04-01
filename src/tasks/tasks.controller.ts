@@ -34,28 +34,28 @@ export class TasksController {
   constructor(private readonly tasksService: TasksService) {}
 
   /**
- * Retrieve all tasks with optional search and filtering
- * @param {GetTasksQueryDto} query - Query parameters for filtering
- * @returns {ApiResponse<Task[]>} - Standard API response with filtered tasks
- */
-@ApiOperation({
-  summary: 'Get all tasks',
-  description: 'Fetches all tasks from the database with optional filters',
-})
-@ApiSwaggerResponse({
-  status: 200,
-  description: 'List of tasks retrieved successfully',
-  type: GetTasksViewModel,
-})
-@Get()
-getAll(@Query() query: GetTasksQueryDto): ApiResponse<Task[]> {
-  const tasks = this.tasksService.getAll(query);
-  return {
-    status: 'success',
-    message: 'Tasks retrieved successfully',
-    data: tasks,
-  };
-}
+   * Retrieve all tasks with optional search and filtering
+   * @param {GetTasksQueryDto} query - Query parameters for filtering
+   * @returns {ApiResponse<Task[]>} - Standard API response with filtered tasks
+   */
+  @ApiOperation({
+    summary: 'Get all tasks',
+    description: 'Fetches all tasks from the database with optional filters',
+  })
+  @ApiSwaggerResponse({
+    status: 200,
+    description: 'List of tasks retrieved successfully',
+    type: GetTasksViewModel,
+  })
+  @Get()
+  getAll(@Query() query: GetTasksQueryDto): ApiResponse<Task[]> {
+    const tasks = this.tasksService.getAll(query);
+    return {
+      status: 'success',
+      message: 'Tasks retrieved successfully',
+      data: tasks,
+    };
+  }
 
   /**
    * Retrieve a task by its ID
@@ -108,8 +108,8 @@ getAll(@Query() query: GetTasksQueryDto): ApiResponse<Task[]> {
   })
   @Post()
   create(@Body() todo: CreateTaskDto): CreateTaskViewModel {
-    const createdTask = this.tasksService.create(todo);
-    return CreateTaskViewModel.toViewModel(createdTask);
+    const data = this.tasksService.create(todo);
+    return CreateTaskViewModel.toViewModel({ data });
   }
 
   /**
